@@ -3,39 +3,23 @@ name: dates
 on: [push]
 
 jobs: 
-  job1:
-    name: Ubuntu Job
+  ubuntu:
     runs-on: ubuntu-latest
     steps: 
-    - name: Step ONE
-      uses: actions/checkout@v4
-    - name: Step TWO
-      run: date
+    - run: date
 
-  job2:
-    name: Windows Job
+  windows:
     runs-on: windows-latest
     steps: 
-    - name: Step ONE
-      uses: actions/checkout@v4
-    - name: Step TWO
-      run: date
+    - run: date
 
-  job3:
-    name: Mac Job
+  macos:
     runs-on: macos-latest
     steps: 
-    - name: Step ONE
-      uses: actions/checkout@v4
-    - name: Step TWO
-      run: date
+    - run: date
         
-  job4:
-    name: MyOS Job
-    needs: [job1,job2,job3]
+  depends:
+    needs: [ubuntu,windows,macos]
     runs-on: macos-latest
     steps: 
-    - name: Step ONE
-      uses: actions/checkout@v4
-    - name: Step TWO
-      run: date
+    - run: date
