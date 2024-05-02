@@ -1,10 +1,10 @@
-name: environment-variables
+name: dates
 
 on: [push]
 
 jobs: 
   job1:
-    name: First Job
+    name: Ubuntu Job
     runs-on: ubuntu-latest
     steps: 
     - name: Step ONE
@@ -13,7 +13,7 @@ jobs:
       run: date
 
   job2:
-    name: Second Job
+    name: Windows Job
     runs-on: windows-latest
     steps: 
     - name: Step ONE
@@ -21,3 +21,21 @@ jobs:
     - name: Step TWO
       run: date
 
+  job3:
+    name: Mac Job
+    runs-on: macos-latest
+    steps: 
+    - name: Step ONE
+      uses: actions/checkout@v4
+    - name: Step TWO
+      run: date
+        
+  job4:
+    name: MyOS Job
+    needs: [job1,job2,job3]
+    runs-on: macos-latest
+    steps: 
+    - name: Step ONE
+      uses: actions/checkout@v4
+    - name: Step TWO
+      run: date
