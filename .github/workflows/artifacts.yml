@@ -1,0 +1,12 @@
+name: artifacts
+
+on: [push]
+
+env:
+  ARTIFACT_NAME: artifact_thing
+
+jobs:
+  upload:
+  - use: actions/checkout
+  - use: actions/upload-artifact
+    name: ${{ env.ARTIFACT_NAME }}
