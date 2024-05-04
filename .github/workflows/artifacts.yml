@@ -1,12 +1,12 @@
 name: artifacts
-
 on: [push]
-
 env:
   ARTIFACT_NAME: artifact_thing
-
 jobs:
   upload:
-  - use: actions/checkout
-  - use: actions/upload-artifact
-    name: ${{ env.ARTIFACT_NAME }}
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/upload-artifact@4
+      with:
+        name: ${{ env.ARTIFACT_NAME }}
